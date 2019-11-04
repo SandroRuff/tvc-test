@@ -1,0 +1,28 @@
+<form class="tvc-step-form" [formGroup]="formGroup">
+
+    <!-- ROW: Vehicles -->
+    <div class="tvc-step-content-row">
+      <!-- LABEL -->
+      <div class="tvc-step-content-label">
+        <label for="vehicles">How many vehicles will be parked at the property?</label>
+      </div>
+      <!-- ITEM -->
+      <div class="tvc-step-content-item w250">
+        <mat-form-field id="vehicles" class="tvc-select"
+          floatLabel="never" hideRequiredMarker="true"
+          [ngClass]="{ '-invalid': vehicles.invalid && vehicles.touched }">
+          <mat-label>Please Select...</mat-label>
+          <mat-select formControlName="vehicles" required>
+            <mat-option *ngFor="let option of options" [value]="option">{{option}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+  
+        <div *ngIf="vehicles.invalid && vehicles.touched" class="error">
+          <div *ngIf="vehicles.errors.required">
+            Vehicles cannot be blank.
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </form>

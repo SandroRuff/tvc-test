@@ -1,0 +1,165 @@
+<form class="tvc-step-form" [formGroup]="formGroup">
+
+  <!-- Radio Group 1 -->
+  <div class="tvc-step-content-row radio-buttons tvc-radio-button-group">
+    <label>Has your tenancy ever been terminated by a landlord or agent?</label>
+    <mat-radio-group formControlName="tenancy">
+      <mat-radio-button [value]="true">Yes</mat-radio-button>
+      <mat-radio-button [value]="false">No</mat-radio-button>
+    </mat-radio-group>
+  </div>
+
+  <div *ngIf="tenancy.value" class="tvc-step-content-row multiline">
+    <!-- LABEL -->
+    <div class="tvc-step-content-label">
+      <label for="tenancy">Please provide details</label>
+    </div>
+    <!-- ITEM -->
+    <div class="tvc-step-content-item w250">
+      <input id="tenancy" class="tvc-step-input">
+    </div>
+  </div>
+
+  <!-- Radio Group 2 -->
+  <div class="tvc-step-content-row radio-buttons tvc-radio-button-group">
+    <label>Have you ever been refused a property by any landlord or agent?</label>
+    <mat-radio-group formControlName="refuse">
+      <mat-radio-button [value]="true">Yes</mat-radio-button>
+      <mat-radio-button [value]="false">No</mat-radio-button>
+    </mat-radio-group>
+  </div>
+
+  <div *ngIf="refuse.value" class="tvc-step-content-row multiline">
+    <!-- LABEL -->
+    <div class="tvc-step-content-label">
+      <label for="refuse">Please provide details</label>
+    </div>
+    <!-- ITEM -->
+    <div class="tvc-step-content-item w250">
+      <input id="refuse" class="tvc-step-input">
+    </div>
+  </div>
+
+  <!-- Radio Group 3 -->
+  <div class="tvc-step-content-row radio-buttons tvc-radio-button-group">
+    <label>Are you in debt to another landlord or adent?</label>
+    <mat-radio-group formControlName="debt">
+      <mat-radio-button [value]="true">Yes</mat-radio-button>
+      <mat-radio-button [value]="false">No</mat-radio-button>
+    </mat-radio-group>
+  </div>
+
+  <div *ngIf="debt.value" class="tvc-step-content-row multiline">
+    <!-- LABEL -->
+    <div class="tvc-step-content-label">
+      <label for="debt">Please provide details</label>
+    </div>
+    <!-- ITEM -->
+    <div class="tvc-step-content-item w250">
+      <input id="debt" class="tvc-step-input">
+    </div>
+  </div>
+
+  <!-- Radio Group 4 -->
+  <div class="tvc-step-content-row radio-buttons tvc-radio-button-group">
+    <label>Have any deductions ever been made from your rental bond?</label>
+    <mat-radio-group formControlName="deductions">
+      <mat-radio-button [value]="true">Yes</mat-radio-button>
+      <mat-radio-button [value]="false">No</mat-radio-button>
+    </mat-radio-group>
+  </div>
+
+  <div *ngIf="deductions.value" class="tvc-step-content-row multiline">
+    <!-- LABEL -->
+    <div class="tvc-step-content-label">
+      <label for="deductions">Please provide details</label>
+    </div>
+    <!-- ITEM -->
+    <div class="tvc-step-content-item w250">
+      <input id="deductions" class="tvc-step-input">
+    </div>
+  </div>
+
+  <!-- Radio Group 5 -->
+  <div class="tvc-step-content-row radio-buttons tvc-radio-button-group">
+    <label>Is there any reason know to you that would affect your feature rental payments?</label>
+    <mat-radio-group formControlName="reason">
+      <mat-radio-button [value]="true">Yes</mat-radio-button>
+      <mat-radio-button [value]="false">No</mat-radio-button>
+    </mat-radio-group>
+  </div>
+
+  <div *ngIf="reason.value" class="tvc-step-content-row multiline">
+    <!-- LABEL -->
+    <div class="tvc-step-content-label">
+      <label for="reason">Please provide details</label>
+    </div>
+    <!-- ITEM -->
+    <div class="tvc-step-content-item w250">
+      <input id="reason" class="tvc-step-input">
+    </div>
+  </div>
+
+  <!-- Radio Group 6 -->
+  <div class="tvc-step-content-row radio-buttons tvc-radio-button-group">
+    <label>Do you have any other applications pending on other properties</label>
+    <mat-radio-group formControlName="applications">
+      <mat-radio-button [value]="true">Yes</mat-radio-button>
+      <mat-radio-button [value]="false">No</mat-radio-button>
+    </mat-radio-group>
+  </div>
+
+  <!-- Radio Group 7 -->
+  <div class="tvc-step-content-row radio-buttons tvc-radio-button-group">
+    <label>Do you currently own a property?</label>
+    <mat-radio-group formControlName="currently">
+      <mat-radio-button [value]="true">Yes</mat-radio-button>
+      <mat-radio-button [value]="false">No</mat-radio-button>
+    </mat-radio-group>
+  </div>
+
+  <div *ngIf="currently.value" class="tvc-step-content-row multiline">
+    <!-- LABEL -->
+    <div class="tvc-step-content-label">
+      <label for="currently">Please specify the suburb</label>
+    </div>
+    <!-- ITEM -->
+    <div class="tvc-step-content-item w250">
+      <input id="currently" class="tvc-step-input">
+    </div>
+  </div>
+
+  <!-- Radio Group 8 -->
+  <div class="tvc-step-content-row radio-buttons tvc-radio-button-group">
+    <label>Are you considering buying a property after this tenancy or in the near feature?</label>
+    <mat-radio-group formControlName="buying">
+      <mat-radio-button [value]="true">Yes</mat-radio-button>
+      <mat-radio-button [value]="false">No</mat-radio-button>
+    </mat-radio-group>
+  </div>
+
+  <div *ngIf="buying.value" class="tvc-step-content-row multiline">
+    <!-- LABEL -->
+    <div class="tvc-step-content-label">
+      <label for="intendOnBuying">When do you intend on buying?</label>
+    </div>
+    <!-- ITEM -->
+    <div class="tvc-step-content-item w250">
+      <mat-form-field id="intendOnBuying" class="tvc-select"
+        floatLabel="never" hideRequiredMarker="true"
+        [ngClass]="{ '-invalid': intendOnBuying.invalid && intendOnBuying.touched }">
+        <mat-label>Please Select...</mat-label>
+        <mat-select formControlName="intendOnBuying" required>
+          <mat-option *ngFor="let option of options" [value]="option">{{option}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+      <div *ngIf="intendOnBuying.invalid && intendOnBuying.touched" class="error">
+        <div *ngIf="intendOnBuying.errors.required">
+          When do you intend on buying? cannot be blank.
+        </div>
+      </div>
+    </div>
+  </div>
+
+</form>

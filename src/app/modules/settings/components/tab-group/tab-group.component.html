@@ -1,0 +1,11 @@
+<ul class="tab-group">
+  <li class="tvc-tab" *ngFor="let tabPage of tabs; index as i"
+      [ngClass]="{ 'current': tab === i, 'prev': step > i }"
+      (click)="tab = i">
+    <span class="tvc-tab-title">{{tabPage.label}}</span>
+  </li>
+</ul>
+
+<div class="content">
+  <ng-content></ng-content>
+</div>

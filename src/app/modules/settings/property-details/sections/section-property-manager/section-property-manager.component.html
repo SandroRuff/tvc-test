@@ -1,0 +1,63 @@
+<form class="tvc-step-form" [formGroup]="formGroup">
+
+  <!-- ROW: Agency Name -->
+  <div class="tvc-step-content-row">
+    <!-- LABEL -->
+    <div class="tvc-step-content-label">
+      <label for="agencyName">Agency Name</label>
+    </div>
+    <!-- ITEM -->
+    <div class="tvc-step-content-item">
+      <input id="agencyName" class="tvc-step-input" type="text" formControlName="agencyName"
+        [ngClass]="{ '-invalid': agencyName.invalid && (agencyName.dirty || agencyName.touched) }"
+        required>
+  
+      <div *ngIf="agencyName.invalid && (agencyName.dirty || agencyName.touched)" class="error">
+        <div *ngIf="agencyName.errors.required">
+          Agency Name cannot be blank.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROW: Property Manager Name -->
+  <div class="tvc-step-content-row">
+    <!-- LABEL -->
+    <div class="tvc-step-content-label">
+      <label for="managerName">Property Manager Name</label>
+    </div>
+    <!-- ITEM -->
+    <div class="tvc-step-content-item">
+      <input id="managerName" class="tvc-step-input" type="text" formControlName="managerName"
+        [ngClass]="{ '-invalid': managerName.invalid && (managerName.dirty || managerName.touched) }"
+        required>
+  
+      <div *ngIf="managerName.invalid && (managerName.dirty || managerName.touched)" class="error">
+        <div *ngIf="managerName.errors.required">
+          Property Manager Name cannot be blank.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROW: Property Manager Email Address -->
+  <div class="tvc-step-content-row">
+    <!-- LABEL -->
+    <div class="tvc-step-content-label">
+      <label for="managerEmail">Property Manager Email Address</label>
+    </div>
+    <!-- ITEM -->
+    <div class="tvc-step-content-item">
+      <input id="managerEmail" class="tvc-step-input" type="text" formControlName="managerEmail"
+        [ngClass]="{ '-invalid': managerEmail.invalid && (managerEmail.dirty || managerEmail.touched) }"
+        required>
+  
+      <div *ngIf="managerEmail.invalid && (managerEmail.dirty || managerEmail.touched)" class="error">
+        <div *ngIf="managerEmail.errors.required">
+          Property Manager Email Address cannot be blank.
+        </div>
+      </div>
+    </div>
+  </div>
+
+</form>

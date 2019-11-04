@@ -1,0 +1,79 @@
+<form class="tvc-step-form" [formGroup]="formGroup">
+
+  <div class="tvc-step-content-row database">
+    <span class="text">The agent/manager may utillise any of the following residential tenancy database companies to check the tenancy history of applicants. If you wish to contact these organizations, their details are below:</span>
+    <span class="text-list">
+      <span><b>Equifax's National Tenancy Database</b></span>
+      <span><b>1300 563 826</b></span>
+      <span><b>www.tenancydatabase.com.au</b></span>
+    </span>
+    <span class="text-list">
+      <span><b>TICA</b></span>
+      <span><b>1902 220 346</b></span>
+      <span><b>www.tica.com.au</b></span>
+    </span>
+    <span class="text-list">
+      <span><b>RP DATA</b></span>
+      <span><b>1300 734 318</b></span>
+      <span><b>www.rpdata.com</b></span>
+    </span>
+    <span class="text-list">
+      <span><b>BARCLAY MIS</b></span>
+      <span><b>1300 883 916</b></span>
+      <span><b>www.barclaymis.com.au</b></span>
+    </span>
+    <span class="text-list">
+      <span><b>TRA</b></span>
+      <span><b>02 9363 9244</b></span>
+      <span><b>www.tradingreference.com</b></span>
+    </span>
+  </div>
+
+  <div class="tvc-step-content-row database mb30">
+    <div class="tvc-step-content-item">
+      <mat-checkbox class="tvc-checkbox"
+          formControlName="terms"
+          [labelPosition]="after"
+          required>
+        I confirm that I have been notified of the tenancy detabese contact details & the reasons for use.
+      </mat-checkbox>
+  
+      <div *ngIf="terms.invalid && terms.touched" class="error">
+        <div *ngIf="terms.errors.required">
+          You must accept this option
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tvc-step-content-row database mb30">
+    <span class="text">I also acknowledge that the agent in question cannot confirm that any phone lines to the property are operable or able to be reconnected. I understand that it is my responsibility to check with the telephone provider before processing woth the tenancy to confirm the situation with the telephone line. Ensuring the main swotch is the off position for power connection remains the responsibility of the tenant.</span>
+  </div>
+
+  <div class="tvc-step-content-row radio-buttons tvc-radio-button-group inline">
+    <label>Would you like to add any extra information to support your application?</label>
+    <mat-radio-group formControlName="extraInfoCheck">
+      <mat-radio-button [value]="true">Yes</mat-radio-button>
+      <mat-radio-button [value]="false">No</mat-radio-button>
+    </mat-radio-group>
+  </div>
+
+  <div *ngIf="extraInfoCheck.value" class="tvc-step-content-row">
+    <!-- LABEL -->
+    <div class="tvc-step-content-label">
+      <label for="extraInfo">Please specify the extra information</label>
+    </div>
+    <!-- ITEM -->
+    <div class="tvc-step-content-item">
+      <input id="extraInfo" class="tvc-step-input" formControlName="extraInfo" formControlName="extraInfo"
+      [ngClass]="{ '-invalid': extraInfo.invalid && (extraInfo.dirty || extraInfo.touched) }"
+      required>
+      <div *ngIf="extraInfo.invalid && (extraInfo.dirty || extraInfo.touched)" class="error">
+        <div *ngIf="extraInfo.errors.required">
+          Extra information cannot be blank.
+        </div>
+      </div>
+    </div>
+  </div>
+
+</form>

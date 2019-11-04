@@ -1,0 +1,51 @@
+<div>
+  <!-- width > 980px -->
+  <div class="stepper">
+    <div class="tvc-step" 
+        *ngFor="let stepPage of steps; index as i"
+        [ngClass]="{'current': step===i, 'prev': step>i}">
+      <div class="tvc-step-button" 
+          [ngClass]="{'first': isFirst(i), 'last': isLast(i)}">
+        <button mat-mini-fab [disabled]="!canGoToStep(i)"
+            [color]="step > i ? 'primary' : step === i ? 'accent' : null"
+            (click)="step = i">
+          {{i + 1}}
+        </button>
+      </div>
+      <div class="tvc-step-text-container">
+        <span class="tvc-step-title" (click)="step = i">
+          {{stepPage.label}}
+        </span>
+      </div>
+    </div>
+  </div>
+  <!-- width <= 980px -->
+  <div class="stepper-compact">
+    <mat-icon *ngIf="!isFirst(step)" class="icon"
+      svgIcon="tvc-prev" (click)="previous()">
+    </mat-icon>
+    <span class="title">
+      {{step + 1}}. {{steps[step].label}}
+    </span>
+    <mat-icon *ngIf="!isLast(step)" class="icon"
+      svgIcon="tvc-next" (click)="next()">
+    </mat-icon>
+  </div>
+</div>
+
+<ng-content></ng-content>
+
+<div class="navigation">
+  <button *ngIf="!isFirst(step)" type="button"
+      class="im-button im-button-inline prev" tvcBtnPrev>
+    <&nbsp; Back
+  </button>
+  <button *ngIf="!isLast(step)" type="button"
+      class="im-button im-button-inline next" tvcBtnNext>
+    Next: {{nextTitle}} >&nbsp;
+  </button>
+  <button *ngIf="isLast(step)" type="button"
+      class="im-button im-button-inline confirm">
+    Confirm
+  </button>
+</div>

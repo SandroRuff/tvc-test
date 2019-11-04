@@ -1,0 +1,23 @@
+:host {
+  .tab-group {
+    padding: 2px 0 0 0;
+    background-color: #0088cc;
+    display: inline-block;
+    .tvc-tab {
+      list-style: none;
+      font-size: 14px;
+      padding: 15px 20px;
+      cursor: pointer;
+      display: inline-block;
+      color: #ffffff;
+      &.current {
+        background-color: #ffffff;
+        color: #000000;
+      }
+    }
+  }
+  .content {
+    padding: 15px;
+    background-color: #ffffff;
+  }
+}

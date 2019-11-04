@@ -1,0 +1,294 @@
+<form class="tvc-step-form" [formGroup]="formGroup">
+
+  <!-- ROW: Application Address -->
+  <div class="tvc-step-content-row">
+    <!-- LABEL -->
+    <div class="tvc-step-content-label">
+      <label for="address">Application Address</label>
+    </div>
+    <!-- ITEM -->
+    <div class="tvc-step-content-item">
+      <input id="address" class="tvc-step-input" type="text" formControlName="address"
+        [ngClass]="{ '-invalid': address.invalid && (address.dirty || address.touched) }"
+        required>
+  
+      <div *ngIf="address.invalid && (address.dirty || address.touched)" class="error">
+        <div *ngIf="address.errors.required">
+          Application Address cannot be blank.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROW: Suburb -->
+  <div class="tvc-step-content-row">
+    <!-- LABEL -->
+    <div class="tvc-step-content-label">
+      <label for="suburb">Suburb</label>
+    </div>
+    <!-- ITEM -->
+    <div class="tvc-step-content-item w250">
+      <input id="suburb" class="tvc-step-input" type="text" formControlName="suburb"
+        [ngClass]="{ '-invalid': suburb.invalid && (suburb.dirty || suburb.touched) }"
+        required>
+  
+      <div *ngIf="suburb.invalid && (suburb.dirty || suburb.touched)" class="error">
+        <div *ngIf="suburb.errors.required">
+          Suburb cannot be blank.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROW: State -->
+  <div class="tvc-step-content-row">
+    <!-- LABEL -->
+    <div class="tvc-step-content-label">
+      <label for="state">State</label>
+    </div>
+    <!-- ITEM -->
+    <div class="tvc-step-content-item w250">
+      <mat-form-field id="state" class="tvc-select"
+        floatLabel="never" hideRequiredMarker="true"
+        [ngClass]="{ '-invalid': state.invalid && state.touched }">
+        <mat-label>Please Select...</mat-label>
+        <mat-select formControlName="state" required>
+          <mat-option *ngFor="let option of options" [value]="option">{{option}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <div *ngIf="state.invalid && state.touched" class="error">
+        <div *ngIf="state.errors.required">
+          State cannot be blank.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROW: Postcode -->
+  <div class="tvc-step-content-row">
+    <!-- LABEL -->
+    <div class="tvc-step-content-label">
+      <label for="postcode">Postcode</label>
+    </div>
+    <!-- ITEM -->
+    <div class="tvc-step-content-item w100">
+      <input id="postcode" class="tvc-step-input" type="text" formControlName="postcode"
+        [ngClass]="{ '-invalid': postcode.invalid && (postcode.dirty || postcode.touched) }"
+        required>
+  
+      <div *ngIf="postcode.invalid && (postcode.dirty || postcode.touched)" class="error">
+        <div *ngIf="postcode.errors.required">
+          Postcode cannot be blank.
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- ROW: State -->
+  <div class="tvc-step-content-row">
+    <!-- LABEL -->
+    <div class="tvc-step-content-label">
+      <label for="type">Type of Property</label>
+    </div>
+    <!-- ITEM -->
+    <div class="tvc-step-content-item w250">
+      <mat-form-field id="type" class="tvc-select"
+        floatLabel="never" hideRequiredMarker="true"
+        [ngClass]="{ '-invalid': type.invalid && type.touched }">
+        <mat-label>Please Select...</mat-label>
+        <mat-select formControlName="type" required>
+          <mat-option *ngFor="let option of options" [value]="option">{{option}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <div *ngIf="type.invalid && type.touched" class="error">
+        <div *ngIf="type.errors.required">
+          Type cannot be blank.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROW: No of Bedrooms -->
+  <div class="tvc-step-content-row">
+    <!-- LABEL -->
+    <div class="tvc-step-content-label">
+      <label for="bedrooms">No of Bedrooms</label>
+    </div>
+    <!-- ITEM -->
+    <div class="tvc-step-content-item">
+      <mat-button-toggle-group id="bedrooms" class="tvc-button-toggle-group"
+        formControlName="bedrooms" required
+        [ngClass]="{ '-invalid': bedrooms.invalid && (bedrooms.dirty || bedrooms.touched) }">
+        <mat-button-toggle value="1">1</mat-button-toggle>
+        <mat-button-toggle value="2">2</mat-button-toggle>
+        <mat-button-toggle value="3">3</mat-button-toggle>
+        <mat-button-toggle value="4">4</mat-button-toggle>
+        <mat-button-toggle value="5+">5+</mat-button-toggle>
+      </mat-button-toggle-group>
+  
+      <div *ngIf="bedrooms.invalid && (bedrooms.dirty || bedrooms.touched)" class="error">
+        <div *ngIf="bedrooms.errors.required">
+          No of Bedrooms cannot be blank.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROW: Preferred Commencement Date -->
+  <div class="tvc-step-content-row">
+    <!-- LABEL -->
+    <div class="tvc-step-content-label">
+      <label for="commencementDate">Preferred Commencement Date</label>
+    </div>
+    <!-- ITEM -->
+    <div class="tvc-step-content-item w200">
+      <mat-form-field floatLabel="never" hideRequiredMarker="true"
+        class="tvc-datepicker-input"
+        [ngClass]="{ '-invalid': commencementDate.invalid && (commencementDate.dirty || commencementDate.touched) }">
+        <input id="commencementDate" matInput [matDatepicker]="picker" 
+          placeholder="DD-MM-YYYY" formControlName="commencementDate" required>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+  
+      <div *ngIf="commencementDate.invalid && (commencementDate.dirty || commencementDate.touched)" class="error">
+        <div *ngIf="commencementDate.errors.required">
+          Type cannot be blank.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROW: Preferred Length of Lease -->
+  <div class="tvc-step-content-row lease">
+    <!-- LABEL -->
+    <div class="tvc-step-content-label">
+      <label>Preferred Length of Lease</label>
+    </div>
+    <!-- ITEM -->
+    <div class="tvc-step-content-item">
+      <div class="w150">
+        <label class="label" for="leaseYear">Year</label>
+        <mat-form-field id="leaseYear" class="tvc-select"
+          floatLabel="never" hideRequiredMarker="true"
+          [ngClass]="{ '-invalid': leaseYear.invalid && leaseYear.touched }">
+          <mat-label>Please Select...</mat-label>
+          <mat-select formControlName="leaseYear" required>
+            <mat-option *ngFor="let option of options" [value]="option">{{option}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <div *ngIf="leaseYear.invalid && leaseYear.touched" class="error">
+          <div *ngIf="leaseYear.errors.required">
+            Year cannot be blank.
+          </div>
+        </div>
+      </div>
+      <div class="w150">
+        <label class="label" for="leaseMonth">Month</label>
+        <mat-form-field id="leaseMonth" class="tvc-select"
+          floatLabel="never" hideRequiredMarker="true"
+          [ngClass]="{ '-invalid': leaseMonth.invalid && leaseMonth.touched }">
+          <mat-label>Please Select...</mat-label>
+          <mat-select formControlName="leaseMonth" required>
+            <mat-option *ngFor="let option of options" [value]="option">{{option}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <div *ngIf="leaseMonth.invalid && leaseMonth.touched" class="error">
+          <div *ngIf="leaseMonth.errors.required">
+            Month cannot be blank.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROW: Weekly Rent -->
+  <div class="tvc-step-content-row">
+    <!-- LABEL -->
+    <div class="tvc-step-content-label">
+      <label for="weeklyRent">Weekly Rent</label>
+    </div>
+    <!-- ITEM -->
+    <div class="tvc-step-content-item w150">
+      <input id="weeklyRent" class="tvc-step-input" type="number" formControlName="weeklyRent"
+        [ngClass]="{ '-invalid': weeklyRent.invalid && (weeklyRent.dirty || weeklyRent.touched) }"
+        required placeholder="$">
+  
+      <div *ngIf="weeklyRent.invalid && (weeklyRent.dirty || weeklyRent.touched)" class="error">
+        <div *ngIf="weeklyRent.errors.required">
+          Weekly Rent cannot be blank.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROW: Monthly Rent -->
+  <div class="tvc-step-content-row">
+    <!-- LABEL -->
+    <div class="tvc-step-content-label">
+      <label for="monthlyRent">Monthly Rent</label>
+    </div>
+    <!-- ITEM -->
+    <div class="tvc-step-content-item w150">
+      <input id="monthlyRent" class="tvc-step-input" type="number" formControlName="monthlyRent"
+        [ngClass]="{ '-invalid': monthlyRent.invalid && (monthlyRent.dirty || monthlyRent.touched) }"
+        required placeholder="$">
+  
+      <div *ngIf="monthlyRent.invalid && (monthlyRent.dirty || monthlyRent.touched)" class="error">
+        <div *ngIf="monthlyRent.errors.required">
+          Monthly Rent cannot be blank.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROW: Bond -->
+  <div class="tvc-step-content-row">
+    <!-- LABEL -->
+    <div class="tvc-step-content-label">
+      <label for="bond">Bond</label>
+    </div>
+    <!-- ITEM -->
+    <div class="tvc-step-content-item w150">
+      <input id="bond" class="tvc-step-input" type="number" formControlName="bond"
+        [ngClass]="{ '-invalid': bond.invalid && (bond.dirty || bond.touched) }"
+        required placeholder="$">
+  
+      <div *ngIf="bond.invalid && (bond.dirty || bond.touched)" class="error">
+        <div *ngIf="bond.errors.required">
+          Bond cannot be blank.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROW: Source -->
+  <div class="tvc-step-content-row">
+    <!-- LABEL -->
+    <div class="tvc-step-content-label">
+      <label for="source">How did you find out about this property?</label>
+    </div>
+    <!-- ITEM -->
+    <div class="tvc-step-content-item">
+      <mat-form-field id="source" class="tvc-select"
+        floatLabel="never" hideRequiredMarker="true"
+        [ngClass]="{ '-invalid': source.invalid && source.touched }">
+        <mat-label>Please Select...</mat-label>
+        <mat-select formControlName="source" required>
+          <mat-option *ngFor="let option of options" [value]="option">{{option}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <div *ngIf="source.invalid && source.touched" class="error">
+        <div *ngIf="source.errors.required">
+          How did you find out about this property? cannot be blank.
+        </div>
+      </div>
+    </div>
+  </div>
+
+</form>

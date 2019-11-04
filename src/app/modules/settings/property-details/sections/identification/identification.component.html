@@ -1,0 +1,100 @@
+<form class="tvc-step-form" [formGroup]="formGroup">
+
+  <div class="tvc-step-content-row info">
+    <span class="comment">To assess your application, this property manager requires the following copies of your identification and supporting documentaiton.</span>
+  </div>
+  <div class="tvc-step-content-row info">
+    <span class="comment">100 Points of Identification - You must upload at least one of photo identification*</span>
+  </div>
+  <div class="tvc-step-content-row info">
+    <span class="item"><b>50 points*</b> - Primary/Photo ID</span>
+    <span class="comment">(Eg. Drivers License, Passport, Keypass, Proof Of Age)</span>
+    <span class="item"><b>30 points</b> - Secondary ID</span>
+    <span class="comment">(Eg. Birth Certificate, Student Card, Medicare Card, Health Care Card, Vehicle Registration)</span>
+    <span class="item"><b>30 points</b> - Rental History/Proof of Address</span>
+    <span class="comment">(Eg. Rental Receipts, Signed Lease, Utility Bill, Bank Statements, Rental Reference)</span>
+    <span class="item"><b>20 points</b> - Employment/Proof of Income</span>
+    <span class="comment">(Eg. Payslips, Letter of Employment, Employment Reference)</span>
+  </div>
+
+  <div class="tvc-step-content-row radio-buttons tvc-radio-button-group multiline">
+    <label>How would you loke to upload?</label>
+    <mat-radio-group formControlName="uploadMethod">
+      <mat-radio-button [value]="false">I do not wish to upload my supporting documentation</mat-radio-button>
+      <mat-radio-button [value]="true">Upload via Computer</mat-radio-button>
+    </mat-radio-group>
+  </div>
+
+  <div *ngIf="!uploadMethod.value" class="tvc-step-content-row">
+    <!-- LABEL -->
+    <div class="tvc-step-content-label">
+      <label for="deliverMethod">I will deliver my documentation by</label>
+    </div>
+    <!-- ITEM -->
+    <div class="tvc-step-content-item w250">
+      <mat-form-field id="deliverMethod" class="tvc-select"
+        floatLabel="never" hideRequiredMarker="true"
+        [ngClass]="{ '-invalid': deliverMethod.invalid && deliverMethod.touched }">
+        <mat-label>Please Select...</mat-label>
+        <mat-select formControlName="deliverMethod" required>
+          <mat-option *ngFor="let option of options" [value]="option">{{option}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <div *ngIf="deliverMethod.invalid && deliverMethod.touched" class="error">
+        <div *ngIf="deliverMethod.errors.required">
+          I will deliver my documentation by cannot be blank.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="!uploadMethod.value" class="tvc-step-content-row">
+    <!-- LABEL -->
+    <div class="tvc-step-content-label">
+      <label for="deliverMethod">on the following date</label>
+    </div>
+    <!-- ITEM -->
+    <div class="tvc-step-content-item w200">
+      <mat-form-field floatLabel="never" hideRequiredMarker="true"
+        class="tvc-datepicker-input"
+        [ngClass]="{ '-invalid': date.invalid && (date.dirty || date.touched) }">
+        <input id="date" matInput [matDatepicker]="picker" 
+          placeholder="DD-MM-YYYY" formControlName="date">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+  
+      <div *ngIf="date.invalid && (date.dirty || date.touched)" class="error">
+        <div *ngIf="date.errors.required">
+          on the following date cannot be blank.
+        </div>
+        <div *ngIf="date.errors.dateRange">
+          on the following date must be in the future and within 1 year.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="uploadMethod.value" class="tvc-step-content-row file-input">
+    <div class="drag-container" tvcDragDrop (fileDropped)="uploadFile($event)" (click)="fileInput.click()">
+      <input type="file" hidden #fileInput (change)="uploadFile($event.target.files)">
+      <div class="upload">
+        <mat-icon class="icon" svgIcon="tvc-attach"></mat-icon>
+        <span>Choose file</span>
+      </div>
+      <span class="file-count">{{files.length ? 'Files: ' + files.length : 'No file choosen'}}</span>
+    </div>
+    <div class="files-list">
+      <div class="file" *ngFor="let file of files; let i= index">
+        <mat-icon class="icon delete-file" svgIcon="tvc-close" (click)="deleteAttachment(i)"></mat-icon>
+        <span class="filename">{{file}}</span>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="uploadMethod.value" class="tvc-step-content-row info">
+    <span class="comment">File formats accepted: <b>.jpg .jpeg .png .gif .pdf</b> (images will watermarked for your protection), <b>2MB Limit</b>.</span>
+  </div>
+
+</form>

@@ -1,0 +1,26 @@
+<form class="tvc-step-form" [formGroup]="formGroup">
+  <!-- ROW: Source -->
+  <div class="tvc-step-content-row">
+    <!-- LABEL -->
+    <div class="tvc-step-content-label">
+      <label for="inspect">Have you inspected this property?</label>
+    </div>
+    <!-- ITEM -->
+    <div class="tvc-step-content-item">
+      <mat-form-field id="inspect" class="tvc-select"
+        floatLabel="never" hideRequiredMarker="true"
+        [ngClass]="{ '-invalid': inspect.invalid && inspect.touched }">
+        <mat-label>Please Select...</mat-label>
+        <mat-select formControlName="inspect" required>
+          <mat-option *ngFor="let option of options" [value]="option">{{option}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+      <div *ngIf="inspect.invalid && inspect.touched" class="error">
+        <div *ngIf="inspect.errors.required">
+          Have you inspected this property? cannot be blank.
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

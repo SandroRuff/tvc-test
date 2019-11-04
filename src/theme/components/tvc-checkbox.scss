@@ -1,0 +1,22 @@
+.tvc-checkbox.mat-checkbox-checked {
+  .mat-checkbox-layout {
+    .mat-checkbox-inner-container {
+      .mat-checkbox-background {
+        background-color: #0088cc;
+      }
+    }
+  }
+}
+.tvc-checkbox {
+  .mat-checkbox-layout {
+    .mat-checkbox-inner-container {
+      margin-top: 4px;
+    }
+    .mat-checkbox-label {
+      width: 100%;
+      max-width: 100%;
+      word-break: break-word;
+      white-space: normal;
+    }
+  }
+}

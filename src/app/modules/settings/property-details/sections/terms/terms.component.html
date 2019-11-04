@@ -1,0 +1,51 @@
+<form class="tvc-step-form" [formGroup]="formGroup">
+
+  <div class="tvc-step-content-row terms">
+    <div class="declaration">
+      <p>
+        <b>Privacy & Tenant Declaration</b><br/><br/>
+        <b>1. Privacy - 1form</b><br/><br/>
+        <b>Current Application:</b> 1form collects the information you have entered into our system and siscloses it to the eral estate agent/manager (or their inspection scheduling service provider) for the current application (and may so the same for future applications).<br/><br/>
+        <b>Other use(s) and disclosure(s):</b> 1form's Collection Statement and Privacy Policy further explains how 1form collects, uses and discloses personal information and how to access, correct or complain about the handling.<br/><br/>
+        <b>Current Application:</b> 1form collects the information you have entered into our system and siscloses it to the eral estate agent/manager (or their inspection scheduling service provider) for the current application (and may so the same for future applications).<br/><br/>
+        <b>Other use(s) and disclosure(s):</b> 1form's Collection Statement and Privacy Policy further explains how 1form collects, uses and discloses personal information and how to access, correct or complain about the handling.<br/><br/>
+        <b>Current Application:</b> 1form collects the information you have entered into our system and siscloses it to the eral estate agent/manager (or their inspection scheduling service provider) for the current application (and may so the same for future applications).<br/><br/>
+        <b>Other use(s) and disclosure(s):</b> 1form's Collection Statement and Privacy Policy further explains how 1form collects, uses and discloses personal information and how to access, correct or complain about the handling.<br/><br/>
+        <b>Current Application:</b> 1form collects the information you have entered into our system and siscloses it to the eral estate agent/manager (or their inspection scheduling service provider) for the current application (and may so the same for future applications).<br/><br/>
+        <b>Other use(s) and disclosure(s):</b> 1form's Collection Statement and Privacy Policy further explains how 1form collects, uses and discloses personal information and how to access, correct or complain about the handling.<br/><br/>
+        <b>Current Application:</b> 1form collects the information you have entered into our system and siscloses it to the eral estate agent/manager (or their inspection scheduling service provider) for the current application (and may so the same for future applications).<br/><br/>
+        <b>Other use(s) and disclosure(s):</b> 1form's Collection Statement and Privacy Policy further explains how 1form collects, uses and discloses personal information and how to access, correct or complain about the handling.<br/><br/>
+        <b>Current Application:</b> 1form collects the information you have entered into our system and siscloses it to the eral estate agent/manager (or their inspection scheduling service provider) for the current application (and may so the same for future applications).<br/><br/>
+        <b>Other use(s) and disclosure(s):</b> 1form's Collection Statement and Privacy Policy further explains how 1form collects, uses and discloses personal information and how to access, correct or complain about the handling.<br/><br/>
+        <b>Current Application:</b> 1form collects the information you have entered into our system and siscloses it to the eral estate agent/manager (or their inspection scheduling service provider) for the current application (and may so the same for future applications).<br/><br/>
+        <b>Other use(s) and disclosure(s):</b> 1form's Collection Statement and Privacy Policy further explains how 1form collects, uses and discloses personal information and how to access, correct or complain about the handling.<br/><br/>
+        <b>Current Application:</b> 1form collects the information you have entered into our system and siscloses it to the eral estate agent/manager (or their inspection scheduling service provider) for the current application (and may so the same for future applications).<br/><br/>
+        <b>Other use(s) and disclosure(s):</b> 1form's Collection Statement and Privacy Policy further explains how 1form collects, uses and discloses personal information and how to access, correct or complain about the handling.<br/><br/>
+      </p>
+    </div>
+  </div>
+  <div class="tvc-step-content-row terms">
+    <div class="link">
+      <a href="">Tenancy Privacy Statement / Collection Notice & Tenant Declaration</a>
+    </div>
+  </div>
+  <div class="tvc-step-content-row terms">
+    <div class="confirm">
+      <div class="tvc-step-content-item">
+        <mat-checkbox class="tvc-checkbox"
+            formControlName="terms"
+            [labelPosition]="after"
+            required>
+          By ticking this box I acknowledge that I have Read, Understood and Agree with the above Tenancy Privacy Statement / Collection Notice & Tenant Declaration and I autorise the sue of the image above to represent my digital signature for purpose of this application
+        </mat-checkbox>
+    
+        <div *ngIf="terms.invalid && terms.touched" class="error">
+          <div *ngIf="terms.errors.required">
+            You must accept this option
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</form>

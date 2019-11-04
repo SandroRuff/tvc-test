@@ -1,0 +1,28 @@
+<form class="tvc-step-form" [formGroup]="formGroup">
+
+  <!-- ROW: Occupants -->
+  <div class="tvc-step-content-row">
+    <!-- LABEL -->
+    <div class="tvc-step-content-label">
+      <label for="occupants">Apart from the above, how many other people will be occupying the property?</label>
+    </div>
+    <!-- ITEM -->
+    <div class="tvc-step-content-item w250">
+      <mat-form-field id="occupants" class="tvc-select"
+        floatLabel="never" hideRequiredMarker="true"
+        [ngClass]="{ '-invalid': occupants.invalid && occupants.touched }">
+        <mat-label>Please Select...</mat-label>
+        <mat-select formControlName="occupants" required>
+          <mat-option *ngFor="let option of options" [value]="option">{{option}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <div *ngIf="occupants.invalid && occupants.touched" class="error">
+        <div *ngIf="occupants.errors.required">
+          Occupants cannot be blank.
+        </div>
+      </div>
+    </div>
+  </div>
+
+</form>

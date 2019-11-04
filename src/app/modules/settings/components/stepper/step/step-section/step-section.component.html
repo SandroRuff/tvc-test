@@ -1,0 +1,10 @@
+<div class="header">
+  <div class="header-title">
+    <mat-icon class="icon" svgIcon="{{icon}}"></mat-icon>
+    <span class="title">{{title}}</span>
+  </div>
+  <div *ngIf="subtitle" class="header-subtitle" [innerHtml]="subtitle"></div>
+</div>
+<div class="content">
+  <ng-content></ng-content>
+</div>
