@@ -8,6 +8,7 @@ import { MaterialModule } from '../../material.module';
 import { TabDirective } from './tab-group/tab/tab.directive';
 import { BtnNextDirective } from './stepper/btn-next/btn-next.directive';
 import { BtnPrevDirective } from './stepper/btn-prev/btn-prev.directive';
+import { TipsComponent } from './tips/tips.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,8 @@ import { BtnPrevDirective } from './stepper/btn-prev/btn-prev.directive';
 
     TabGroupComponent,
     TabDirective,
+
+    TipsComponent,
   ],
   imports: [
     CommonModule,
@@ -33,6 +36,8 @@ import { BtnPrevDirective } from './stepper/btn-prev/btn-prev.directive';
 
     TabGroupComponent,
     TabDirective,
+
+    TipsComponent,
   ]
 })
 export class SettingsComponentsModule { }

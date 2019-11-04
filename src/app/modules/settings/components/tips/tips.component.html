@@ -1,0 +1,11 @@
+<div class="container" #tips>
+  <div class="header">
+    <mat-icon class="icon" svgIcon="tvc-tips"></mat-icon>
+    <span>Did you know?</span>
+  </div>
+  <div class="link">
+    <a href="">How to protect yourself from rental scams</a>
+  </div>
+  <mat-icon class="icon close" svgIcon="tvc-close"
+    (click)="tips.parentElement.remove()"></mat-icon>
+</div>

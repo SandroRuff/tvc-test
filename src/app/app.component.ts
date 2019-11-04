@@ -26,5 +26,6 @@ export class AppComponent {
     iconRegistry.addSvgIcon('tvc-info', sanitizer.bypassSecurityTrustResourceUrl('assets/icon/info.svg'));
     iconRegistry.addSvgIcon('tvc-attach', sanitizer.bypassSecurityTrustResourceUrl('assets/icon/attach.svg'));
     iconRegistry.addSvgIcon('tvc-close', sanitizer.bypassSecurityTrustResourceUrl('assets/icon/close.svg'));
+    iconRegistry.addSvgIcon('tvc-tips', sanitizer.bypassSecurityTrustResourceUrl('assets/icon/tips.svg'));
   }
 }
