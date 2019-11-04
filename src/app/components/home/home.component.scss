@@ -1,18 +1,29 @@
 :host {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   padding-top: 50px;
   box-sizing: border-box;
   .module {
+    width: 100%;
+    max-width: 400px;
     border: 1px solid #cdcdcd;
     background-color: #ffffff;
     border-radius: 5px;
+    margin-bottom: 25px;
+    box-sizing: border-box;
+    font-size: 18px;
+    cursor: pointer;
+    text-align: center;
+    &:hover {
+      background-color: rgba(255,255,255,0.5);
+    }
     a {
       display: inline-block;
-      padding: 50px 100px;
-      box-sizing: border-box;
       max-width: 100%;
       text-decoration: none;
+      padding: 50px 100px;
     }
   }
 }
