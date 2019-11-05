@@ -1,0 +1,11 @@
+.mat-menu-panel {
+  width: 110px !important;
+  min-width: 110px !important;
+  border-radius: 0 !important;
+  .mat-menu-content {
+    .mat-menu-item {
+      height: 25px;
+      line-height: 25px;
+    }
+  }
+}

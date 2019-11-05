@@ -23,6 +23,7 @@ export class AppComponent {
     iconRegistry.addSvgIcon('tvc-done', sanitizer.bypassSecurityTrustResourceUrl('assets/icon/done.svg'));
     iconRegistry.addSvgIcon('tvc-prev', sanitizer.bypassSecurityTrustResourceUrl('assets/icon/prev.svg'));
     iconRegistry.addSvgIcon('tvc-next', sanitizer.bypassSecurityTrustResourceUrl('assets/icon/next.svg'));
+    iconRegistry.addSvgIcon('tvc-down', sanitizer.bypassSecurityTrustResourceUrl('assets/icon/down.svg'));
     iconRegistry.addSvgIcon('tvc-info', sanitizer.bypassSecurityTrustResourceUrl('assets/icon/info.svg'));
     iconRegistry.addSvgIcon('tvc-attach', sanitizer.bypassSecurityTrustResourceUrl('assets/icon/attach.svg'));
     iconRegistry.addSvgIcon('tvc-close', sanitizer.bypassSecurityTrustResourceUrl('assets/icon/close.svg'));

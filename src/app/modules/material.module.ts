@@ -12,7 +12,8 @@ import {
   MatNativeDateModule,
   MatRadioModule,
   MatCheckboxModule,
-  MatSelectModule
+  MatSelectModule,
+  MatMenuModule
 } from '@angular/material';
 
 
@@ -31,7 +32,8 @@ import {
     MatNativeDateModule,
     MatRadioModule,
     MatCheckboxModule,
-    MatSelectModule
+    MatSelectModule,
+    MatMenuModule
   ],
   exports: [
     MatStepperModule,
@@ -45,7 +47,8 @@ import {
     MatNativeDateModule,
     MatRadioModule,
     MatCheckboxModule,
-    MatSelectModule
+    MatSelectModule,
+    MatMenuModule
   ],
   providers: [
     MatDatepickerModule,

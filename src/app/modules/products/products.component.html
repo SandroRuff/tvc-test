@@ -1,1 +1,62 @@
-<p>products works!</p>
+<div class="table">
+  <div class="header">
+    <div class="actions">
+      <span class="item">Print</span>
+      <span class="item">Export</span>
+      <span class="item">Manage Columns</span>
+    </div>
+    <input class="tvc-step-input" type="text" placeholder="Type a Keyword">
+  </div>
+  <div class="table-element">
+    <div class="actions" [ngClass]="{ '-active': this.selectAll }">
+      <span class="item">Renewal</span>
+      <span class="item">Get Support</span>
+      <span class="item">View Users</span>
+      <span class="item">View Folder</span>
+      <span class="item">Request Quote</span>
+      <span class="item">Order History</span>
+      <div id="menu">
+        <button mat-button [matMenuTriggerFor]="menu" [disabled]="!this.selectAll">
+          <span>More Actions</span>
+          <mat-icon class="icon" svgIcon="tvc-down"></mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>Action 7</button>
+          <button mat-menu-item>Action 8</button>
+          <button mat-menu-item>Action 9</button>
+          <button mat-menu-item>Action 10</button>
+        </mat-menu>
+      </div>
+    </div>
+    <div class="content">
+      <table>
+        <thead>
+          <tr>
+            <td class="checkbox">
+              <mat-checkbox class="tvc-checkbox thin"
+                [(ngModel)]="selectAll"
+                (click)="onSelectAllClick()">
+              </mat-checkbox>
+            </td>
+            <td class="product">Product</td>
+            <td class="key">License Key</td>
+            <td class="units">Units</td>
+          </tr>
+        </thead>
+        <tbody *ngIf="products">
+          <tr *ngFor="let product of products; index as i" [ngClass]="{ '-selected': product.selected }">
+            <td class="checkbox">
+              <mat-checkbox class="tvc-checkbox thin"
+                [(ngModel)]="product.selected"
+                (click)="onCheckboxClick(product, i)">
+              </mat-checkbox>
+            </td>
+            <td class="product">{{product.name}}</td>
+            <td class="key">{{product.licenseKey}}</td>
+            <td class="units">{{product.unit}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

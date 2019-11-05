@@ -20,3 +20,23 @@
     }
   }
 }
+.tvc-checkbox.thin {
+  .mat-checkbox-inner-container {
+    margin: 0;
+    .mat-checkbox-frame {
+      border: 1px solid #91A0AA;
+    }
+  }
+  &.mat-checkbox-checked {
+    .mat-checkbox-layout {
+      .mat-checkbox-inner-container {
+        .mat-checkbox-background {
+          background-color: transparent;
+          .mat-checkbox-mixedmark {
+            background-color: #91A0AA;
+          }
+        }
+      }
+    }
+  }
+}
